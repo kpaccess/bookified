@@ -82,9 +82,15 @@ const uploadFormSchema = z.object({
     ),
   title: z.string().trim().min(1, "Title is required."),
   authorName: z.string().trim().min(1, "Author name is required."),
-  voice: z.enum(["dave", "daniel", "chris", "rachel", "sarah"], {
-    error: "Please choose an assistant voice.",
-  }),
+  voice: z
+    .string()
+    .refine(
+      (value) =>
+        ["dave", "daniel", "chris", "rachel", "sarah"].includes(value),
+      {
+        message: "Please choose an assistant voice.",
+      },
+    ),
 });
 
 type UploadFormValues = z.infer<typeof uploadFormSchema>;
