@@ -61,7 +61,7 @@ export default function HeroSection({ addBookHref }: HeroSectionProps) {
             />
           </div>
 
-          <div className="library-steps-card" aria-label="How Bookified works">
+          <div className="library-steps-card" aria-label="How Bookfied works">
             {steps.map((step, index) => (
               <div className="library-step-item" key={step.title}>
                 <span className="library-step-number">{index + 1}</span>

@@ -97,8 +97,10 @@ export const ACCEPTED_IMAGE_TYPES = [
   "image/webp",
 ];
 
-// Pre-configured VAPI assistant ID (hardcoded for this app)
-export const ASSISTANT_ID = process.env.NEXT_PUBLIC_ASSISTANT_ID!;
+// Pre-configured VAPI assistant ID.
+// Keep this non-throwing so unrelated pages can render without this env var.
+export const ASSISTANT_ID = process.env.NEXT_PUBLIC_ASSISTANT_ID ?? "";
+export const HAS_ASSISTANT_ID = ASSISTANT_ID.length > 0;
 
 // 11Labs Voice IDs - Optimized for conversational AI
 // Voices selected for natural, engaging book conversations
